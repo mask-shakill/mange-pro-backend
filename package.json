@@ -1,22 +1,30 @@
 {
-  "name": "care",
-  "version": "0.1.0",
-  "private": true,
+  "name": "mange-pro-backend",
+  "version": "1.0.0",
+  "description": "A backend project built with **Express.js**, **Supabase**, and **TypeScript** for **ManagePro** company management software. This backend handles user authentication, task management, finance tracking, and more.",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node server.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mask-shakill/mange-pro-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mask-shakill/mange-pro-backend/issues"
+  },
+  "homepage": "https://github.com/mask-shakill/mange-pro-backend#readme",
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.3"
+    "express": "^5.1.0"
   },
   "devDependencies": {
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3"
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
