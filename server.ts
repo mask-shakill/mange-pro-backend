@@ -1,29 +1,18 @@
-import express, { Request, Response } from "express";
-
-type Revenue = number;
-type Expenses = number;
-type Profit = number;
-
-const calculateNetProfit = (revenue: Revenue, expenses: Expenses): Profit => {
-  return revenue - expenses;
-};
+import express from "express";
+import dotenv from "dotenv";
+import sequelize from "./database/config";
+import roleRoutes from "./routes/roleRotes";
+dotenv.config();
 
 const app = express();
-const port = 3000;
-
-app.get("/calculate", (_req: Request, res: Response) => {
-  const revenue: Revenue = 100000;
-  const expenses: Expenses = 75000;
-
-  const netProfit: Profit = calculateNetProfit(revenue, expenses);
-
-  res.json({
-    revenue,
-    expenses,
-    netProfit,
+app.use(express.json());
+app.use("/roles", roleRoutes);
+sequelize
+  .sync()
+  .then(() => {
+    console.log("Database connected and synced.");
+    app.listen(3000, () => console.log("Server running on port 3000"));
+  })
+  .catch((error) => {
+    console.error("Unable to connect to the database:", error);
   });
-});
-
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
